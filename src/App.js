@@ -1,13 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import classes from './App.module.css';
 
-function App() {
-  return (
-    <div className={classes.App}>
-      Hello World
-    </div>
-  );
+class App extends Component{
+  render(){
+    return (
+      <div className={classes.App}>
+        Hello World
+      </div>
+    )
+  }
 }
 
 export default App;
