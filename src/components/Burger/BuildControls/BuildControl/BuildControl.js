@@ -5,8 +5,8 @@ const BuildControl = props => {
     return(
         <div className={classes.BuildControl}>
             <div className={classes.Label}>{props.label}</div>
-            <div className={classes.Less} onClick={props.less}>Less</div>
-            <div className={classes.More} onClick={props.more}>More</div>
+            <button className={classes.Less} onClick={props.less} disabled={props.disable}>Less</button>
+            <button className={classes.More} onClick={props.more} >More</button>
         </div>
     )
 }
