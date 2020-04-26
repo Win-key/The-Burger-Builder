@@ -1,0 +1,36 @@
+.ContactData{
+    border : 1px solid #272727;
+    box-shadow: 1px 1px 3px 3px #909090;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    margin: auto;
+    height: 250px;
+    width: 500px;
+}
+
+.ContactData .Input{
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #909090;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+}
+
+.ContactData .Input:hover{
+    border : 1px solid #63b3f0d6;
+    box-shadow: 1px 1px 2px 2px #63b3f0d6;
+}
+
+@media(max-width:500px){
+    .ContactData{
+        width: 300px;
+    }
+}
+
+@media(max-width:300px){
+    .ContactData{
+        width: 200px;
+    }
+}

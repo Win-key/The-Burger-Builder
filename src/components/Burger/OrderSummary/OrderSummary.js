@@ -18,7 +18,7 @@ const OrderSummary = props => {
             </ul>
             <p><strong>Current Price : ${props.totalPrice}</strong></p>
             <Button type="Danger" clicked={props.modalClose}>Cancel</Button>
-            <Button type="Success" clicked={props.buy}>Buy</Button>
+            <Button type="Success" clicked={props.buy}>Continue</Button>
         </Auxilary>
     );
 }
