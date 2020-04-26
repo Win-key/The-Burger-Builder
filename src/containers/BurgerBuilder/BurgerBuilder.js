@@ -19,16 +19,23 @@ const INGREDIENT_PRICE = {
 class BurgerBuilder extends Component{
 
     state = {
-        ingredient : {
-            salad : 0,
-            bacon : 0,
-            cheese : 0,
-            meat : 0
-        },
+        ingredient : null,
         totalPrice : 0,
         purchasable : false,
         purchasing : false,
         loading : false
+    }
+
+    componentDidMount(){
+        this.setState({loading : true});
+        axios.get("ingredient.json")
+            .then(response => {
+                this.setState((prevState,props)=>{return {ingredient : response.data, loading : false}});
+            })
+            .catch(error=>{
+                this.setState({loading : false});
+                console.log(error)
+            });
     }
 
     addIngredientHandler = type=>{
@@ -90,7 +97,7 @@ class BurgerBuilder extends Component{
             deliveryMethod : 'fastest',
             deliveryComment : 'Vegama vada .. Paradesi paradesi.. Paduthuranya'
         }
-        axios.post('orders.jsdfhgas',order)
+        axios.post('orders.json',order)
             .then(response =>{
                 this.setState({loading : false, purchasing : false});
             })
@@ -100,6 +107,9 @@ class BurgerBuilder extends Component{
     }
     
     render(){
+        if(!this.state.ingredient){
+            return <Spinner />;
+        }
         let disabledInfo = {...this.state.ingredient};
         for(let ingr in disabledInfo){
             disabledInfo[ingr] = disabledInfo[ingr] <=0;
